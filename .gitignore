@@ -1,0 +1,3 @@
+serial_port_router/*
+!serial_port_router/serial_port_router.srcs
+serial_port_router/serial_port_router.srcs/utils_1/imports/synth_1/serial_port_router.dcp
