@@ -15,40 +15,60 @@ module serial_port_router(
     output              tx3_slave
 );
 
+wire                uart_master_tx_start    ;
+wire    [7 : 0]     uart_master_tx_data     ;
 wire                uart_master_rx_done     ;
 wire    [7 : 0]     uart_master_data        ;
 
 wire                uart_salve0_tx_start    ;
 wire    [7 : 0]     uart_salve0_tx_data     ;
+wire                uart_salve0_rx_done     ;
+wire    [7 : 0]     uart_salve0_data        ;
 
 wire                uart_salve1_tx_start    ;
 wire    [7 : 0]     uart_salve1_tx_data     ;
+wire                uart_salve1_rx_done     ;
+wire    [7 : 0]     uart_salve1_data        ;
 
 wire                uart_salve2_tx_start    ;
 wire    [7 : 0]     uart_salve2_tx_data     ;
+wire                uart_salve2_rx_done     ;
+wire    [7 : 0]     uart_salve2_data        ;
 
 wire                uart_salve3_tx_start    ;
 wire    [7 : 0]     uart_salve3_tx_data     ;
+wire                uart_salve3_rx_done     ;
+wire    [7 : 0]     uart_salve3_data        ;
 
 //control
     router_control u_router_control(
         .clk                        (clk                    ),  //系统时钟
         .rst_n                      (rst_n                  ),  //系统复位，低电平有效
 
+        .uart_master_tx_start       (uart_master_tx_start   ),
+        .uart_master_tx_data        (uart_master_tx_data    ),
         .uart_master_rx_done        (uart_master_rx_done    ),
         .uart_master_data           (uart_master_data       ),
 
         .uart_salve0_tx_start       (uart_salve0_tx_start   ),
         .uart_salve0_tx_data        (uart_salve0_tx_data    ),
+        .uart_salve0_rx_done        (uart_salve0_rx_done    ),
+        .uart_salve0_data           (uart_salve0_data       ),
 
         .uart_salve1_tx_start       (uart_salve1_tx_start   ),
         .uart_salve1_tx_data        (uart_salve1_tx_data    ),
+        .uart_salve1_rx_done        (uart_salve1_rx_done    ),
+        .uart_salve1_data           (uart_salve1_data       ),
 
         .uart_salve2_tx_start       (uart_salve2_tx_start   ),
         .uart_salve2_tx_data        (uart_salve2_tx_data    ),
+        .uart_salve2_rx_done        (uart_salve2_rx_done    ),
+        .uart_salve2_data           (uart_salve2_data       ),
 
         .uart_salve3_tx_start       (uart_salve3_tx_start   ),
-        .uart_salve3_tx_data        (uart_salve3_tx_data    )
+        .uart_salve3_tx_data        (uart_salve3_tx_data    ),
+        .uart_salve3_rx_done        (uart_salve3_rx_done    ),
+        .uart_salve3_data           (uart_salve3_data       )
     );
 
 //serial device
@@ -57,9 +77,9 @@ wire    [7 : 0]     uart_salve3_tx_data     ;
         .UART_master_BPS        (115200                 ),
                 
         .UART_slave0_BPS        (19200                  ),
-        .UART_slave1_BPS        (115200                 ),
-        .UART_slave2_BPS        (115200                 ),
-        .UART_slave3_BPS        (115200                 )
+        .UART_slave1_BPS        (9600                   ),
+        .UART_slave2_BPS        (38400                  ),
+        .UART_slave3_BPS        (57600                  )
     )u_serial_device(
         .clk                    (clk                    ),
         .rst_n                  (rst_n                  ),
@@ -76,27 +96,31 @@ wire    [7 : 0]     uart_salve3_tx_data     ;
         .rx3_slave              (rx3_slave              ),
         .tx3_slave              (tx3_slave              ),
 
+        .uart_master_tx_start   (uart_master_tx_start   ),
+        .uart_master_tx_data    (uart_master_tx_data    ),
         .uart_master_rx_done    (uart_master_rx_done    ),
         .uart_master_data       (uart_master_data       ),
 
         .uart_salve0_tx_start   (uart_salve0_tx_start   ),
         .uart_salve0_tx_data    (uart_salve0_tx_data    ),
+        .uart_salve0_rx_done    (uart_salve0_rx_done    ),
+        .uart_salve0_data       (uart_salve0_data       ),
+
         .uart_salve1_tx_start   (uart_salve1_tx_start   ),
         .uart_salve1_tx_data    (uart_salve1_tx_data    ),
+        .uart_salve1_rx_done    (uart_salve1_rx_done    ),
+        .uart_salve1_data       (uart_salve1_data       ),
+
         .uart_salve2_tx_start   (uart_salve2_tx_start   ),
         .uart_salve2_tx_data    (uart_salve2_tx_data    ),
+        .uart_salve2_rx_done    (uart_salve2_rx_done    ),
+        .uart_salve2_data       (uart_salve2_data       ),
+
         .uart_salve3_tx_start   (uart_salve3_tx_start   ),
-        .uart_salve3_tx_data    (uart_salve3_tx_data    )
+        .uart_salve3_tx_data    (uart_salve3_tx_data    ),
+        .uart_salve3_rx_done    (uart_salve3_rx_done    ),
+        .uart_salve3_data       (uart_salve3_data       )
     );
-
-
-
-
-
-
-
-
-
 
 
 
