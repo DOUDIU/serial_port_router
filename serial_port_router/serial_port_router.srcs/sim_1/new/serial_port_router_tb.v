@@ -30,25 +30,37 @@ initial begin
     #20
     tx_data_valid   <=  0;
     tx_data         <=  0;
+    #100000;
+    tx_data_valid   <=  1;
+    tx_data         <=  8'h26;
+    #20
+    tx_data_valid   <=  0;
+    tx_data         <=  0;
+    #100000;
+    tx_data_valid   <=  1;
+    tx_data         <=  8'h8a;
+    #20
+    tx_data_valid   <=  0;
+    tx_data         <=  0;
 
-    #100000;
-    tx_data_valid   <=  1;
-    tx_data         <=  8'hf3;
-    #20
-    tx_data_valid   <=  0;
-    tx_data         <=  0;
-    #100000;
-    tx_data_valid   <=  1;
-    tx_data         <=  8'he1;
-    #20
-    tx_data_valid   <=  0;
-    tx_data         <=  0;
-    #100000;
-    tx_data_valid   <=  1;
-    tx_data         <=  8'h92;
-    #20
-    tx_data_valid   <=  0;
-    tx_data         <=  0;
+    // #100000;
+    // tx_data_valid   <=  1;
+    // tx_data         <=  8'hf3;
+    // #20
+    // tx_data_valid   <=  0;
+    // tx_data         <=  0;
+    // #100000;
+    // tx_data_valid   <=  1;
+    // tx_data         <=  8'he1;
+    // #20
+    // tx_data_valid   <=  0;
+    // tx_data         <=  0;
+    // #100000;
+    // tx_data_valid   <=  1;
+    // tx_data         <=  8'h92;
+    // #20
+    // tx_data_valid   <=  0;
+    // tx_data         <=  0;
 
 
 end

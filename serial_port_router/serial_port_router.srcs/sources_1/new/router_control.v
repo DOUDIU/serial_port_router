@@ -27,13 +27,10 @@ module router_control(
     
     reg                 salve0_tx_start         ;
     reg     [7 : 0]     salve0_tx_data          ;
-
     reg                 salve1_tx_start         ;
     reg     [7 : 0]     salve1_tx_data          ;
-
     reg                 salve2_tx_start         ;
     reg     [7 : 0]     salve2_tx_data          ;
-
     reg                 salve3_tx_start         ;
     reg     [7 : 0]     salve3_tx_data          ;
 
@@ -122,6 +119,7 @@ module router_control(
             salve3_tx_data     <=  0;
         end
     end
+
 
 
 //output assignment
